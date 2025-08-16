@@ -1,0 +1,20 @@
+# deployment-frontend.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: click-master-frontend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: click-master-frontend
+  template:
+    metadata:
+      labels:
+        app: click-master-frontend
+    spec:
+      containers:
+      - name: click-master-frontend-container
+        image: clickmastercr.azurecr.io/click-master-frontend:v1
+        ports:
+        - containerPort: 3000

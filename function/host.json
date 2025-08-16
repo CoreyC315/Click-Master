@@ -1,0 +1,20 @@
+{
+  "version": "2.0",
+  "extensions": {
+    "http": {
+      "routePrefix": "api"
+    }
+  },
+  "host": {
+    "cors": {
+      "allowedOrigins": [
+        "*"
+      ]
+    }
+  },
+  "logging": {
+    "logLevel": {
+      "default": "Information"
+    }
+  }
+}

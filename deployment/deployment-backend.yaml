@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: click-master-backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: click-master-backend
+  template:
+    metadata:
+      labels:
+        app: click-master-backend
+    spec:
+      containers:
+      - name: click-master-backend-container
+        # IMPORTANT: Update this with your new registry name
+        image: clickmastercr.azurecr.io/click-master-backend:v1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SqlConnectionString
+          valueFrom:
+            secretKeyRef:
+              name: sql-connection-string-secret
+              key: SqlConnectionString

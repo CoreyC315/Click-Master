@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: ./public
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./public:/usr/share/nginx/html
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./function
+      dockerfile: Dockerfile
+    ports:
+      - "7071:80"
+    environment:
+      # Pass the connection string to the container
+      - SqlConnectionString=${SqlConnectionString}
+      # Set the CORS configuration
+      - CORS=*
+    volumes:
+      - ./function:/home/site/wwwroot

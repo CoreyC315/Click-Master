@@ -1,0 +1,13 @@
+# service-backend.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: click-master-backend-service
+spec:
+  selector:
+    app: click-master-backend
+  ports:
+    - protocol: TCP
+      port: 80 # Service port
+      targetPort: 8080 # Container port from the deployment
+  type: ClusterIP # Only accessible within the cluster
