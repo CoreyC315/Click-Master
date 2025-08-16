@@ -1,0 +1,11 @@
+# Here is how I set thing up to make the click master game.
+
+The code set up in the root directory is what I used for functionality of the game
+
+First clone the repo and take a look at the code!
+
+Next to make it functional you will need to have 3 different azure services.
+
+# 1. You will need a function app
+The function app will be nessecary for calling the API to connect to the database.
+
